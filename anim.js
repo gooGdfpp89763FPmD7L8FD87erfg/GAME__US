@@ -49,15 +49,15 @@
 
   function fmt(n) {
 
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   document.querySelectorAll(".stat .n").forEach(function (el) {
     var raw = el.textContent.trim();
 
-    var m = raw.match(/^([\d\s  ]+)(\+?)$/);
+    var m = raw.match(/^([\d,\s  ]+)(\+?)$/);
     if (!m) return;
-    var target = parseInt(m[1].replace(/[\s  ]/g, ""), 10);
+    var target = parseInt(m[1].replace(/[,\s  ]/g, ""), 10);
     if (isNaN(target)) return;
     var suffix = m[2] || "";
 
@@ -93,47 +93,47 @@
     var GAMES = {
       wz: {
         img: "https://hack-gaming.fr/unreal.webp", alt: "cheat warzone",
-        count: "K dispozici 3 balíčky",
+        count: "3 packs available",
         name: "Call of Duty: Black Ops 7 / Warzone",
-        desc: "Aimbot, ESP, ranked spoofer a triggerbot. 100% bezpečné pro streamování.",
-        price: "389 €", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
-        cta: "Zobrazit balíčky Warzone →", href: "https://hack-gaming.fr/cheat-warzone.html",
+        desc: "Aimbot, ESP, ranked spoofer and triggerbot. 100% stream proof.",
+        price: "€389", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
+        cta: "View Warzone packs →", href: "https://hack-gaming.fr/cheat-warzone.html",
         glow: "59,130,246"
       },
       arc: {
         img: "https://hack-gaming.fr/arc-ghost.webp", alt: "cheat arc rider pc",
-        count: "K dispozici 3 balíčky",
+        count: "3 packs available",
         name: "ARC Raiders",
-        desc: "Aimbot, ESP hráčů a robotů, ESP lootu a extrakcí, triggerbot a HWID spoofer.",
-        price: "389 €", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
-        cta: "Zobrazit balíčky ARC Raiders →", href: "https://hack-gaming.fr/cheat-arc-rider.html",
+        desc: "Aimbot, player and robot ESP, loot and extraction ESP, triggerbot and HWID spoofer.",
+        price: "€389", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
+        cta: "View ARC Raiders packs →", href: "https://hack-gaming.fr/cheat-arc-rider.html",
         glow: "245,158,11"
       },
       fn: {
         img: "https://hack-gaming.fr/fn-delta.webp", alt: "cheat fortnite",
-        count: "K dispozici 2 balíčky",
+        count: "2 packs available",
         name: "Fortnite",
-        desc: "Aimbot na míru, ESP hráčů, ESP lootu a truhel, HWID spoofer + cleaner.",
-        price: "389 €", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
-        cta: "Zobrazit balíčky Fortnite →", href: "https://hack-gaming.fr/cheat-fortnite.html",
+        desc: "Custom aimbot, player ESP, loot and chest ESP, HWID spoofer + cleaner.",
+        price: "€389", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
+        cta: "View Fortnite packs →", href: "https://hack-gaming.fr/cheat-fortnite.html",
         glow: "139,92,246"
       },
       val: {
         img: "https://hack-gaming.fr/valorant-maxim.webp", alt: "cheat valorant pc",
-        count: "K dispozici 1 balíček",
+        count: "1 pack available",
         name: "Valorant",
-        desc: "Aimbot, ESP, triggerbot a HWID spoofer. Nedetekovatelné a 100% stream proof.",
-        price: "389 €", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
-        cta: "Zobrazit balíček Valorant →", href: "https://hack-gaming.fr/cheat-valorant.html",
+        desc: "Aimbot, ESP, triggerbot and HWID spoofer. Undetectable and 100% stream proof.",
+        price: "€389", consoles: "🖥️ PC · 🎮 Xbox · 🎮 PS5",
+        cta: "View Valorant pack →", href: "https://hack-gaming.fr/cheat-valorant.html",
         glow: "255,70,85"
       },
       tk: {
         img: "https://hack-gaming.fr/tarkov-reaper.webp", alt: "cheat tarkov pc",
-        count: "K dispozici 1 balíček",
+        count: "1 pack available",
         name: "Escape from Tarkov",
-        desc: "Aimbot, ESP hráčů a scavů, ESP lootu a extrakcí, HWID spoofer. Připraveno k nasazení.",
-        price: "389 €", consoles: "🖥️ PC",
-        cta: "Zobrazit balíček Tarkov →", href: "https://hack-gaming.fr/cheat-tarkov.html",
+        desc: "Aimbot, player and scav ESP, loot and extraction ESP, HWID spoofer. Ready to deploy.",
+        price: "€389", consoles: "🖥️ PC",
+        cta: "View Tarkov pack →", href: "https://hack-gaming.fr/cheat-tarkov.html",
         glow: "166,154,70"
       }
     };
@@ -161,7 +161,7 @@
       elCount.textContent = g.count;
       elName.textContent = g.name;
       elDesc.textContent = g.desc;
-      elPrice.innerHTML = "od <b>" + g.price + "</b>";
+      elPrice.innerHTML = "from <b>" + g.price + "</b>";
       elCons.textContent = g.consoles;
       elCta.textContent = g.cta;
       elCta.href = g.href;
